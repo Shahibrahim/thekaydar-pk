@@ -1,0 +1,84 @@
+/* Background gradient */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #e4801c, #0d3b66);
+  }
+  
+  /* Login box */
+  .login-box {
+    text-align: center;
+    padding: 5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    width: 35rem;
+  }
+  
+  /* Logo */
+  .logo img {
+    width: 100px;
+    margin-bottom: 15px;
+    margin-left: 10em;
+    
+  }
+  
+  /* Input fields */
+  .input-group {
+    margin-bottom: 15px;
+    margin-top: 2rem;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    outline: none;
+  }
+  
+  .input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Login button */
+  .login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff8000;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .login-btn:hover {
+    background: #e56b00;
+  }
+  
+  /* Links */
+  .links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .links a {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    opacity: 0.8;
+  }
+  
+  .links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+  

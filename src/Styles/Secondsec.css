@@ -1,0 +1,140 @@
+.secondsec{
+    display: flexbox;
+}
+
+.secondsec h1{
+    text-align: center;
+    font-weight: 900;
+}
+
+.secondsec p{
+    text-align: center;
+}
+
+.products{
+    display: flex;
+    justify-content: center;
+}
+
+.product1{
+    display: flexbox;
+    justify-content: center;
+    height: 25rem;
+    width: 20rem;
+    background: linear-gradient(to bottom,#EACCA7,#AFD3EE);
+}
+.product1 img{
+    margin-top: 9rem;
+    margin-left: 8rem;
+}
+.product1 h1{
+    margin-top: 2rem;
+    font-size: 1.8rem;
+}
+
+.product1 p{
+    font-size: 0.8rem;
+}
+.product1 h3{
+    margin-left: 7.5rem;
+    font-size: 1.3rem;
+    font-weight: 650;
+    
+}
+
+.product2{
+    display: flexbox;
+    justify-content: center;
+    height: 25rem;
+    width: 20rem;
+    background: linear-gradient(to bottom,#EACCA7,#AFD3EE);
+}
+.product2 img{
+    margin-top: 9rem;
+    margin-left: 8rem;
+}
+.product2 h1{
+    margin-top: 2rem;
+    font-size: 1.8rem;
+}
+
+.product2 p{
+    font-size: 0.8rem;
+}
+.product2 h3{
+    margin-left: 7.5rem;
+    font-size: 1.3rem;
+    font-weight: 650;
+}
+
+.product3{
+    display: flexbox;
+    justify-content: center;
+    height: 25rem;
+    width: 20rem;
+    background: linear-gradient(to bottom,#EACCA7,#AFD3EE);
+}
+.product3 img{
+    margin-top: 9rem;
+    margin-left: 8rem;
+}
+.product3 h1{
+    margin-top: 2rem;
+    font-size: 1.8rem;
+}
+
+.product3 p{
+    font-size: 0.8rem;
+}
+.product3 h3{
+    margin-left: 7.5rem;
+    font-size: 1.3rem;
+    font-weight: 650;
+}
+
+.viewall{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.viewall button{
+    position: relative;
+    height: 3rem;
+    width: 11rem;
+    border-radius: 5rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #F77F00;
+    border-style: none;
+}
+
+.viewall img{
+    position: absolute;
+    margin-top: 1rem;
+    margin-left: 8rem;
+}
+
+.secondsecfooter{
+    display: flexbox;
+    width: 1263px;
+    height: 190px;
+    background-color: #004b87;
+    margin-top: 2rem;
+}
+
+.secondsecfooter h2{
+    color: white;
+margin-left: 19rem;
+padding-top: 3rem;
+font-weight: 400;
+font-size: 2rem;
+}
+
+.images{
+    margin-top: 3rem;
+}
+
+.images img{
+    margin-left: 4.5rem;
+}

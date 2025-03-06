@@ -1,0 +1,164 @@
+.thirdsec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ECDECC;
+    padding-top: 2rem; /* Adds space at the top without affecting children */
+    position: relative;
+    padding-bottom: 5rem;
+}
+
+
+.empower{
+    display: flexbox;
+    height: 14rem;
+    width: 60rem;
+    background: linear-gradient(to bottom,#EACCA7,#AFD3EE);
+    margin-left: 4rem;
+    margin-top: 4rem;
+    border-radius: 1.5rem;
+     opacity: 80%;
+}
+
+.empower .flex{
+    display: flex;
+}
+
+.empower h1{
+    font-weight: 600;
+    font-size: 2rem;
+    margin-left: 5rem;
+    margin-top: 3rem;
+}
+.empower p{
+    font-weight: 600;
+    font-size: 1rem;
+    margin-left: 5rem;
+    margin-top: 3rem;
+}
+
+.empower button{
+    height: 3rem;
+    width: 9rem;
+    border-radius: 4rem;
+    background: linear-gradient(to bottom,#EACCA7,#AFD3EE);
+    margin-left:5rem ;
+    opacity: 80%;
+}
+.two .image img{
+    margin-left: 61.5rem;
+    margin-top: rem;
+    position: absolute;
+    opacity: 200%;
+    z-index: 2;
+}
+.unleash{
+    position: relative;
+    display: flexbox;
+    height: 14rem;
+    width: 60rem;
+    background: linear-gradient(to bottom,#AFD3EE,#EACCA7);
+    margin-left: 4rem;
+    margin-top: 3rem;
+    border-radius: 1.5rem;
+     opacity: 100%;
+     z-index: 1;
+}
+
+.unleash .flex{
+    display: flex;
+}
+
+.twosections{
+    display: flex;
+}
+
+.unleash h1{
+    font-weight: 600;
+    font-size: 2rem;
+    margin-left: 5rem;
+    margin-top: 2rem;
+}
+
+.unleash ul{
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-left: 9rem;
+    margin-top: 2rem;
+    list-style:circle;
+}
+
+.unleash p{
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-left: 5rem;
+    margin-top: -1.3rem;
+}
+
+.assist{
+    height: 20rem;
+    border-radius: 3rem;
+    width: 29.5rem;
+    margin-left: 4rem;
+    margin-right: 1rem;
+    margin-top: 2rem;
+    background: linear-gradient(to right,#E6A156,#D3AA82);
+}
+
+.assist h1{
+    margin-top: 1.5rem;
+    margin-left: 5rem;
+    font-weight: 500;
+    font-size: 2.2rem;
+}
+
+.assist p{
+    margin-top: 1.5rem;
+    margin-left: 5rem;
+    font-weight: 500;
+}
+
+.assist button{
+    height: 3rem;
+    width: 7rem;
+    border-radius: 4rem;
+    margin-top: 3rem;
+    margin-left: 19rem;
+    border-style: none;
+    background-color: #2B5E84;
+    color: white;
+}
+.fun{
+    height: 20rem;
+    border-radius: 3rem;
+    width: 29.5rem;
+    margin-top: 2rem;
+    background: linear-gradient(to bottom,#E5C9A2,#E5C9A2);
+    opacity: 80%;
+}
+
+.fun h1{
+    margin-top: 1.5rem;
+    margin-left: 3rem;
+    font-weight: 500;
+    font-size: 2.2rem;
+}
+
+.fun p{
+    margin-top: 1.5rem;
+    margin-left: 3rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.fun button{
+    height: 3rem;
+    width: 7rem;
+    border-radius: 4rem;
+    margin-top: 3rem;
+    margin-left: 20rem;
+    border-style:;
+    border-color: white;
+    background-color: #E5C9A2;
+    color: black;
+}

@@ -1,0 +1,108 @@
+.fifthsec{
+    display: flexbox;
+    margin-top: 5rem;
+    padding-bottom: 4rem;
+}    
+
+.fifthsec h1{
+    text-align:  center;
+}
+.fifthsec p{
+    text-align: center;
+}
+
+
+.fifthsec .first{
+    background-color: hsl(247, 47%, 96%);
+height: 22.5rem;
+width: 30rem;
+margin-left: 10rem;
+border-radius: 1rem;
+}
+.fifthsec .first img{
+    height: 3rem;
+    width: 3rem;
+    margin-top: 8rem;
+    margin-left: 13.5rem;
+}
+
+.fifthsec .first h1{
+    margin-top: 15rem;
+    margin-left: -13rem;
+    font-size: 1.5rem;
+    font-weight: 650;
+    color: hsl(207, 100%, 27%);
+
+}
+.fifthsec .first p{
+    margin-top: 17.5rem;
+    margin-left: -10rem;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: hsl(31, 100%, 49%);
+}
+.fifthsec .second{
+    background-color: hsl(247, 47%, 96%);
+height: 11rem;
+width: 24rem;
+margin-top: -22.5rem;
+margin-left: 43rem;
+margin-bottom: 1rem;
+border-radius: 1rem;
+}
+.fifthsec .second img{
+    height: 3rem;
+    width: 3rem;
+    margin-top: 3.5rem;
+    margin-left: 17.5rem;
+}
+
+.fifthsec .second h1{
+    margin-top: 4rem;
+    margin-left: -19rem;
+    font-size: 1.5rem;
+    font-weight: 650;
+    color: hsl(207, 100%, 27%);
+
+}
+.fifthsec .second p{
+    margin-top: 6rem;
+    margin-left: -11rem;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: hsl(31, 100%, 49%);
+}
+
+.fifthsec .third{
+    background-color: hsl(247, 47%, 96%);
+    height: 11rem;
+    width: 24rem;
+    margin-left: 43rem;
+    border-radius: 1rem;
+}
+
+.fifthsec .third img{
+    height: 3rem;
+    width: 3rem;
+    margin-top: 3.5rem;
+    margin-left: 17.5rem;
+}
+
+.fifthsec .third h1{
+    margin-top: 4rem;
+    margin-left: -19rem;
+    font-size: 1.5rem;
+    font-weight: 650;
+    color: hsl(207, 100%, 27%);
+
+}
+.fifthsec .third p{
+    margin-top: 6rem;
+    margin-left: -14rem;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: hsl(31, 100%, 49%);
+}
