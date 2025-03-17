@@ -7,6 +7,7 @@ import Youtube from "../Images/Youtube.svg";
 import Pinterest from "../Images/Pinterest.svg";
 import Twitch from "../Images/Twitch.svg";
 import Webflow from "../Images/Webflow.svg";
+import { Link } from 'react-router-dom';
 
 export default function Secondsec({ hideSection = false }) {
     return (
@@ -38,11 +39,12 @@ export default function Secondsec({ hideSection = false }) {
                 </div>
 
                 {/* Hide the button when hideSection is true */}
-                {!hideSection && (
+                 {!hideSection && (
+                   
                     <div className="viewall">
-                        <button type="button"><b>View All</b></button>
+                   <Link to="/product-page"><button type="button"><b>View All</b></button></Link>   
                         <img src={Arrow2} alt="" />
-                    </div>
+                    </div> 
                 )}
 
                 {!hideSection && (
