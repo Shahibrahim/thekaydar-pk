@@ -11,7 +11,7 @@ export default function Navbar() {
         <img className="logo mx-5" src={logo} alt="Logo" /></Link>
       </div>
       <div className="btns my-4 mx-5">
-      <Link to="/product-page">
+      <Link to="/cart">
         <img className="cart my-2 mx-4" src={cart} alt="Cart" /></Link>
         <Link to="/login">
           <button className="Signin" type="button">Sign in</button>

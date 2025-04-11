@@ -18,7 +18,7 @@ import FAQ from "./Component/FAQ";
 import "./Styles/FAQ.css";
 import Footer from "./Component/Footer";
 import "./Styles/Footer.css";
-import Login from "./Component/Login"; // Import the Login page
+import Login from "./Component/Login"; 
 import "./Styles/Signup.css";
 import Signup from "./Component/Signup";
 import "./Styles/Signupsupp.css";

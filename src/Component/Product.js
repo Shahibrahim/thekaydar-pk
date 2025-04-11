@@ -1,6 +1,7 @@
 import React from "react";
 import productImage from "../Images/product.svg"; // Placeholder image
 import logo from "../Images/logo.png"; // Your company logo
+import { Link } from "react-router-dom";
 
 const ProductPage = () => {
   const products = [
@@ -17,7 +18,8 @@ const ProductPage = () => {
       {/* Navbar */}
       <nav className="product-navbar">
         <div className="navbar-left">
-          <img src={logo} alt="Logo" className="product-logo" />
+          <Link to="/App">
+          <img src={logo} alt="Logo" className="product-logo" /></Link>
         </div>
         <ul className="navbar-links">
           <li><a href="#">All Categories</a></li>

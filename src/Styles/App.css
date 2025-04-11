@@ -1,48 +1,123 @@
-.Navbar{
-  height:110px;
-  width:1263px;
+.Navbar {
+  height: 110px;
+  width: 100%;
+  max-width: 2560px;
   background-color: #004b87;
-}
-
-.logo{
-  height:8rem;
-  width: 8rem;
-  margin-top: -1rem;
-  color: white;
-
-}
-
-.Navbar{
-  display:flex;
+  display: flex;
   justify-content: space-between;
-
+  align-items: center;
+  padding: 0 2rem;
 }
 
-.btns{
-  display:flex;
-  justify-content:space-between;
+.logo {
+  height: 6rem;
+  width: 6rem;
+  margin-top: -0.5rem;
 }
 
-.btns button{
-height: 3rem;
-width: 6rem;
-border-radius: 7rem;
-border-width: 0.1rem;
-color: white;
+.btns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.Signup{
-  background-color:#F77F00;
-  border-color:transparent;
-  border-style: solid;
+.btns button {
+  height: 2.5rem;
+  width: 5.5rem;
+  border-radius: 2rem;
+  border-width: 0.1rem;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
-.Signin{
+
+.Signup {
+  background-color: #F77F00;
+  border: none;
+}
+
+.Signin {
   background-color: transparent;
-  border-color:white;
+  border: 1px solid white;
 }
-.btns img{
+
+.btns img {
   height: 2rem;
   width: 2rem;
-  
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .Navbar {
+    height: 90px;
+    padding: 0 1.5rem;
+  }
+  
+  .logo {
+    height: 5rem;
+    width: 5rem;
+  }
+  
+  .btns button {
+    height: 2.2rem;
+    width: 5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .Navbar {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    height: 4.5rem;
+    width: 4.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .btns {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btns button {
+    height: 2rem;
+    width: 4.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Navbar {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  .logo {
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .btns {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btns button {
+    height: 2rem;
+    width: 4rem;
+    font-size: 0.7rem;
+  }
+
+  .btns img {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+}
