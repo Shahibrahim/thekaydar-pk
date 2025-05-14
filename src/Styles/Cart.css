@@ -36,7 +36,13 @@
   .cart-back {
     margin: 20px 30px;
   }
-  
+  .back-btn{
+    background: #003366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   .cart-back a {
     text-decoration: none;
     color: #003366;

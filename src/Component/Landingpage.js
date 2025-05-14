@@ -10,13 +10,13 @@ const LandingPage = () => {
     <div className="landing-wrapper">
       <nav className="navbar-landing">
         <div className="logo-container">
-          <Link to="/App">
+          <Link to="/">
             <div className="logo-landing">
               <img src={logo} alt="Logo" />
             </div>
           </Link>
         </div>
-        <button className="sell-btn-landing">Start Selling</button>
+        <Link to="/signup-supp"> <button className="sell-btn-landing">Start Selling</button></Link>
       </nav>
 
       <header className="hero-section-landing">
@@ -24,7 +24,8 @@ const LandingPage = () => {
         <div className="hero-content-landing">
           <p>Sell on Thekaydar.pk</p>
           <h1>Scale your Business and go with one shop</h1>
-          <button className="hero-btn-landing">Start Selling now</button>
+           <Link to="/signup-supp">  
+          <button className="hero-btn-landing">Start Selling now</button> </Link>
         </div>
       </header>
 

@@ -18,7 +18,7 @@ import FAQ from "./Component/FAQ";
 import "./Styles/FAQ.css";
 import Footer from "./Component/Footer";
 import "./Styles/Footer.css";
-import Login from "./Component/Login"; 
+import Login from "./Component/Login";
 import "./Styles/Signup.css";
 import Signup from "./Component/Signup";
 import "./Styles/Signupsupp.css";
@@ -27,7 +27,7 @@ import "./Styles/BusinessForm.css";
 import BusinessForm from "./Component/BusinessForm";
 import "./Styles/Landingpage.css";
 import LandingPage from "./Component/Landingpage";
-import Product from "./Component/Product";  
+import Product from "./Component/Product";
 import "./Styles/Product.css";
 import ProductDetail from "./Component/ProductDetail";
 import "./Styles/ProductDetail.css";
@@ -35,50 +35,64 @@ import Cart from "./Component/Cart";
 import "./Styles/Cart.css";
 import ProductUpload from "./Component/ProductUpload";
 import "./Styles/Productupload.css";
+import Success from "./Component/Success";
+import Cancel from "./Component/Cancel";
+import Chatbot from "./Component/Chatbot";
+import "./Styles/Chatbot.css";
 
 export default function App() {
   return (
     <Router>
+      
       <Routes>
-        <Route path="/landing-page" element={
-          <>
-            <LandingPage />
-            <Footer />
-          </>
-        } />
-        <Route path="/product-page" element={
-          <>
-            <Product />
-            <Footer />
-          </>
-        } />
-
-        <Route path="/product-detail" element={
-          <>
-            <ProductDetail />
-            <Footer />
-          </>
-        } />
-
-        <Route path="/cart" element={ 
+        <Route path="/cart" element={
           <>
             <Cart />
             <Footer />
           </>
         } />
+        <Route path="/product-page" element={
+                <>
+                  <Product />
+                  <Footer />
+                </>
+              } />
+              <Route path="/landing-page" element={
+                <>
+                  <LandingPage />
+                  <Footer />
+                </>
+              } />
+<Route path="/product-upload" element={
+                <>
+                  <ProductUpload />
+                  <Footer />
+                </>
+              } />
 
-        <Route path="/product-upload" element={
-          <>
-            <ProductUpload />
-            <Footer />
-          </>
-        } />
 
         <Route path="*" element={
           <>
             <Navbar />
             <Routes>
-              <Route path="/App" element={
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
+        {/* other routes */}
+      </Routes>
+            <Routes>
+              
+            
+
+              <Route path="/product/:productId" element={
+                <>
+                  <ProductDetail />
+                  <Footer />
+                </>
+              } />
+
+              
+              <Route path="/" element={
                 <>
                   <Hero />
                   <Secondsec />
@@ -87,13 +101,16 @@ export default function App() {
                   <Fifthsec />
                   <ContactForm />
                   <FAQ />
+                  <Chatbot />
                   <Footer />
                 </>
               } />
+
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/signup-supp" element={<SignupSupp />} />
               <Route path="/business-form" element={<BusinessForm />} />
+              <Route path="/chatbot" element={<Chatbot />} />
             </Routes>
           </>
         } />
@@ -101,5 +118,3 @@ export default function App() {
     </Router>
   );
 }
-
-

@@ -1,96 +1,125 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // ✅ Import for navigation
+import Icon from "../Images/Icon.svg";
 
-const SignupSupp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default function Signup() {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [error, setError] = useState("");
-  const navigate = useNavigate(); // To redirect after signup
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({ type: "", text: "" });
 
-  const handleSignup = async (e) => {
+  const navigate = useNavigate(); // ✅ Initialize navigation
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setLoading(true);
+    setMessage({ type: "", text: "" });
+    formData["role"] = 'supplier'
 
     try {
-      const response = await fetch("http://localhost:5000/api/signupsupp", {
+      const response = await fetch("http://localhost:5000/api/signup", {        
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify(formData)
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => null);
 
-      if (!response.ok) {
-        throw new Error(data.message || "Signup failed. Try again.");
+      if (!response.ok || !data) {
+        throw new Error(data?.message || "Signup failed!");
       }
 
-      alert("Signup successful! Please log in.");
-      navigate("/login"); // Redirect to login page
-    } catch (err) {
-      setError(err.message);
+      setMessage({ type: "success", text: "Signup successful! Redirecting..." });
+
+      // ✅ Redirect to login after 2 seconds
+      setTimeout(() => navigate("/login"), 2000);
+
+    } catch (error) {
+      setMessage({ type: "error", text: error.message });
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="signup-container">
-      <div className="form-section">
-        <h2>Create an Account</h2>
-        <form onSubmit={handleSignup}>
-          {error && <p className="error">{error}</p>}
-          
-          <label>Email</label>
-          <input 
-            type="email" 
-            placeholder="Enter your email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            required 
-          />
+      <div className="signup-box">
+        <div className="header">
+          <img src={Icon} alt="Logo" className="logo" />
+          <h2>Welcome to Thekaydar!</h2>
+          <p>Already have an account? <a href="/login">Log in</a></p>
+        </div>
 
-          <label>Password</label>
-          <div className="password-input">
-            <input
-              type={passwordVisible ? "text" : "password"}
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
+        <form className="signup-form" onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label>Email</label>
+            <input 
+              className="Email" 
+              type="email" 
+              name="email"
+              placeholder="Enter your email" 
+              value={formData.email} 
+              onChange={handleChange} 
+              required 
             />
-            <span
-              className="toggle-password"
-              onClick={() => setPasswordVisible(!passwordVisible)}
-            >
-              {passwordVisible ? "🙈" : "👁️"}
-            </span>
           </div>
 
-          <div className="password-requirements">
-            <p>✔ Use 8 or more characters</p>
-            <p>✔ One uppercase & one lowercase character</p>
-            <p>✔ One special character & one number</p>
+          <div className="input-group">
+            <label>Username</label>
+            <input 
+              type="text" 
+              className="Email" 
+              name="username"
+              placeholder="Enter username" 
+              value={formData.username} 
+              onChange={handleChange} 
+              required 
+            />
           </div>
 
-          <p className="terms">
-            By creating an account, you agree to the{" "}
-            <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+          <div className="input-group password-group">
+            <label>Password</label>
+            <div className="password-wrapper">
+              <input
+                className="Email"
+                type={passwordVisible ? "text" : "password"}
+                name="password"
+                placeholder="Enter password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+              <span className="toggle-password" onClick={() => setPasswordVisible(!passwordVisible)}>
+                {passwordVisible ? "🙈" : "👁"}
+              </span>
+            </div>
+            <small className="password-rules">
+              • Use 8+ characters • One uppercase & lowercase letter • One special character • One number
+            </small>
+          </div>
+
+          {message.text && <p className={`message ${message.type}`}>{message.text}</p>}
+
+          <button type="submit" className="signup-btn" disabled={loading}>
+            {loading ? "Signing Up..." : "Create an account"}
+          </button>
+
+          <p className="login-link">
+            Already have an account? <a href="/login">Log in</a>
           </p>
-
-          <button type="submit">Create an Account</button>
         </form>
-        <p>
-          Already have an account? <a href="/login">Log in</a>
-        </p>
-      </div>
-
-      <div className="image-section">
-        <div className="overlay"></div>
-        <h1 className="logo">Thekaydar</h1>
       </div>
     </div>
   );
-};
-
-export default SignupSupp;
+}

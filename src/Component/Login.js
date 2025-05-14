@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";  
+import { useNavigate } from "react-router-dom";
 import Icon from "../Images/Icon.svg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate(); // For redirection
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/signin", {
+      const response = await fetch("http://localhost:5000/api/signin/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json().catch(() => null);
@@ -27,14 +27,21 @@ const Login = () => {
         throw new Error(data?.message || "Invalid email or password.");
       }
 
-      // Save token in localStorage
-      if (data.token) {
-        localStorage.setItem("token", data.token);
-        navigate("/product-page"); // Redirect after successful login
-      } else {
-        throw new Error("Token missing from server response.");
-      }
+      const userType = data?.user?.role;
 
+      if (!userType) {
+        throw new Error("User role is missing from response.");
+      }
+console.log(userType)
+     if (userType === "supplier") {
+  localStorage.setItem("user", JSON.stringify(data.user)); // Save user info
+  navigate("/product-upload");
+} else if (userType === "buyer") {
+  localStorage.setItem("user", JSON.stringify(data.user)); // Save user info
+  navigate("/product-page");
+} else {
+        throw new Error("Invalid user role.");
+      }
     } catch (err) {
       setError(err.message);
     }
@@ -48,27 +55,29 @@ const Login = () => {
         </div>
         <form className="login-form" onSubmit={handleLogin}>
           {error && <p className="error">{error}</p>}
-          
+
           <div className="input-group">
-            <input 
-              type="email" 
-              placeholder="Email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              required 
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className="input-group">
-            <input 
-              type="password" 
-              placeholder="Password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
-              required 
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
 
-          <button type="submit" className="login-btn">LOGIN</button>
+          <button type="submit" className="login-btn">
+            LOGIN
+          </button>
 
           <div className="links">
             <a href="/signup">Sign up</a>

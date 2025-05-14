@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from '../Images/Sectionfive.svg'
 
+
 export default function Fifthsec() {
   return (
     <div>
@@ -24,6 +25,7 @@ export default function Fifthsec() {
             </div>
         </div>
       </div>
+     
     </div>
   )
 }

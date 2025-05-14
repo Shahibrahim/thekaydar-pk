@@ -4,12 +4,14 @@ import './Styles/index.css';
 import App from './App';
 import "./Styles/Login.css"
 import reportWebVitals from './reportWebVitals';
+import { CartProvider } from "./context/CartContext"; // adjust path as needed
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <CartProvider>
+  <App />
+</CartProvider>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

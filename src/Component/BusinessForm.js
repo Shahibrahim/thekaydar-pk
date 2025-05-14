@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 const BusinessForm = () => {
   const [formData, setFormData] = useState({
     companyName: "",
@@ -12,19 +13,33 @@ const BusinessForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+
+    try {
+      const res = await fetch("http://localhost:5000/api/business", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.message || "Something went wrong");
+
+      alert("Form submitted successfully!");
+    } catch (error) {
+      alert("Submission failed: " + error.message);
+    }
   };
 
   return (
     <div className="business-form-container">
       <div className="form-section">
         <h2>Tell us more about your business</h2>
-        <p>
-          We'll use this information to offer you personalized business
-          solutions.
-        </p>
+        <p>We’ll use this information to offer you personalized business solutions.</p>
 
         <form onSubmit={handleSubmit}>
           <input

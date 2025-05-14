@@ -1,66 +1,68 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Arrow2 from "../Images/arrow2.svg";
-import Product from "../Images/product.svg";
-import Google from "../Images/Google.svg";
-import Facebook from "../Images/Facebook.svg";
-import Youtube from "../Images/Youtube.svg";
-import Pinterest from "../Images/Pinterest.svg";
-import Twitch from "../Images/Twitch.svg";
-import Webflow from "../Images/Webflow.svg";
-import { Link } from 'react-router-dom';
 
 export default function Secondsec({ hideSection = false }) {
-    return (
-        <div>
-            <div className="secondsec">
-                <h1>Discover The Products You Need</h1>
-                <p>From cutting-edge technology to everyday essentials, find<br></br>
-                    products that enhance your lifestyle and drive your success.<br></br>
-                    Start discovering today!</p>
-                <div className="products">
-                    <div className="product1 mx-5"> 
-                        <img src={Product} alt="" />
-                        <h1>Hardware</h1>
-                        <p>The best you need</p>
-                        <h3>$30.00</h3>
-                    </div>
-                    <div className="product2 mx-4">
-                        <img src={Product} alt="" />
-                        <h1>Hardware</h1>
-                        <p>The best you need</p>
-                        <h3>$30.00</h3>
-                    </div>
-                    <div className="product3 mx-5">
-                        <img src={Product} alt="" />
-                        <h1>Hardware</h1>
-                        <p>The best you need</p>
-                        <h3>$30.00</h3>
-                    </div>
-                </div>
+  const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
-                {/* Hide the button when hideSection is true */}
-                 {!hideSection && (
-                   
-                    <div className="viewall">
-                   <Link to="/product-page"><button type="button"><b>View All</b></button></Link>   
-                        <img src={Arrow2} alt="" />
-                    </div> 
-                )}
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/products?limit=3");
+        const data = await response.json();
+        console.log("Fetched Products in Secondsec:", data);
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching limited products:", error);
+      }
+    };
 
-                {!hideSection && (
-                    <div className="secondsecfooter">
-                        <h2>Trusted by 10,000 companies around the world</h2>
-                        <div className="images">
-                            <img src={Google} alt="" />
-                            <img src={Facebook} alt="" />
-                            <img src={Youtube} alt="" />
-                            <img src={Pinterest} alt="" />
-                            <img src={Twitch} alt="" />
-                            <img src={Webflow} alt="" />
-                        </div>
-                    </div>
-                )}
+    fetchProducts();
+  }, []);
+
+  const handleViewAll = () => {
+    const user = localStorage.getItem("user");
+    if (!user) {
+      alert("You need to sign in or sign up to view all products.");
+      navigate("/login");  // Redirect to login page if not signed in
+    }
+  };
+
+  return (
+    <div className="secondsec">
+      <h1>Discover The Products You Need</h1>
+      <p>
+        From cutting-edge technology to everyday essentials, find<br />
+        products that enhance your lifestyle and drive your success.<br />
+        Start discovering today!
+      </p>
+
+      <div className="products">
+        {products.length > 0 ? (
+          products.map((product) => (
+            <div key={product._id} className="product-card mx-4 text-center">
+              <img
+                src={product.images?.[0] || "../Images/product.svg"}
+                alt={product.name}
+                style={{ width: "120px", height: "120px", objectFit: "cover" }}
+              />
+              <h3>{product.name}</h3>
+              <p>{product.description}</p>
+              <h4>Rs.{product.price}</h4>
             </div>
+          ))
+        ) : (
+          <p>Loading products...</p>
+        )}
+      </div>
+
+      {!hideSection && (
+        <div className="viewall">
+          <button type="button" onClick={handleViewAll}><b>View All</b></button>
+          <img src={Arrow2} alt="arrow" />
         </div>
-    );
+      )}
+    </div>
+  );
 }
